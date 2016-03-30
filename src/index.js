@@ -15,24 +15,19 @@ export default function tagHandler(tag, handlerConfig) {
 }
 
 function load() {
-  for (let tag in handlers) {
-    const elements = document.getElementsByTagName(tag),
-          attributeHandlers = handlers[tag];
-
-    elements.forEach(createElementHandler(attributeHandlers));
-  }
+  for (let tag in handlers)
+    document.getElementsByTagName(tag).forEach(createElementHandler(handlers[tag]));
 
   function createElementHandler(attributeHandlers) {
     return element => {
       for (let attribute in attributeHandlers) {
         for (let value in attributeHandlers[attribute]) {
-          if (element[attribute] === value) attributeHandlers[attribute][value].forEach(createElementHandlerCaller(element));
+          if (element[attribute] === value) {
+            const handlers = attributeHandlers[attribute][value];
+            for (let i = 0; i < handlers.length; i++) handlers[i](element);
+          }
         }
       }
     };
-  }
-
-  function createElementHandlerCaller(element) {
-    return handler => handler(element);
   }
 }
