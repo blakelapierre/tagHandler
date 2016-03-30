@@ -1,0 +1,19 @@
+{
+  "name": "tagHandler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blakelapierre/tagHandler.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Blake La Pierre",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blakelapierre/es2015Handler/issues"
+  },
+  "homepage": "https://github.com/blakelapierre/es2015Handler#readme",
+}
