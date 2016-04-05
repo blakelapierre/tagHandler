@@ -20,14 +20,12 @@ function load() {
 
   function createElementHandler(attributeHandlers) {
     return element => {
-      for (let attribute in attributeHandlers) {
-        for (let value in attributeHandlers[attribute]) {
-          if (element[attribute] === value) {
-            const handlers = attributeHandlers[attribute][value];
-            for (let i = 0; i < handlers.length; i++) handlers[i](element);
-          }
-        }
-      }
+      for (let attribute in attributeHandlers)
+        for (let value in attributeHandlers[attribute])
+          if (element[attribute] === value)
+            attributeHandlers[attribute][value].forEach(callHandler);
+
+      function callHandler(handler) { handler(element); }
     };
   }
 }
