@@ -28,18 +28,4 @@ function load() {
       function callHandler(handler) { handler(element); }
     };
   }
-
- // alternative implementation using iterative for loop (no nested function creation [^callHandler^])
- // function createElementHandler(attributeHandlers) {
- //   return element => {
- //      for (let attribute in attributeHandlers) {
- //        for (let value in attributeHandlers[attribute]) {
- //          if (element[attribute] === value) {
- //            const handlers = attributeHandlers[attribute][value];
- //            for (let i = 0; i < handlers.length; i++) handlers[i](element);
- //          }
- //        }
- //      }
- //    };
- //  }
 }
